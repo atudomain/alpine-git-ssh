@@ -16,6 +16,9 @@ RUN echo "Port 4444" >> /etc/ssh/sshd_config
 RUN ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
 RUN ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
 
+# CREATE USER
+RUN adduser git --home "/home/git" --disabled-password
+
 # ENTRYPOINT
 COPY docker-entrypoint.sh /
 RUN chmod 700 /docker-entrypoint.sh
