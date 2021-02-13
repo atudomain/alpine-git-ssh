@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  git-ssh:
+    build: .
+    image: git-ssh
+    container_name: git-ssh
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:4444:4444"
+    volumes:
+      - ./repo/:/repo
+      - ./ssh:/root/.ssh
+
